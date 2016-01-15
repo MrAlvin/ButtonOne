@@ -16,6 +16,9 @@ callbackFunction	KEYWORD1
 begin	KEYWORD2
 setPressDebounceTime	KEYWORD2
 setReleaseDebounceTime	KEYWORD2
+setActiveState	KEYWORD2
+currentStateIsInactiveState	KEYWORD2
+setToggleAsPush	KEYWORD2
 attachPress	KEYWORD2
 attachRelease	KEYWORD2
 check	KEYWORD2

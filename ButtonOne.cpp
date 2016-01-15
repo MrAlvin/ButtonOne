@@ -17,11 +17,18 @@ ButtonOne::ButtonOne(byte pin) {
   _active_state = LOW;  // when reching this state, we register a push of the button
 } // ButtonOne
 
+ButtonOne::ButtonOne(uint8_t pin,  bool state) {
+  _pin = pin;
+  _active_state = state;  // when reching this state, we register a push of the button
+} // ButtonOne
+
 void ButtonOne::begin(void) {
   pinMode(_pin, INPUT_PULLUP);    // set the Button Pin as input and activate the internal Arduino pull-up resistor.
   
   _pressDebounceTime = 75;   // number of millisec that have to pass before we test to see if the button state has changed
   _releaseDebounceTime = 175; // number of millisec that have to pass before we test to see if the button state has changed
+  _toggleRestTime = 500; // number of milli seconds that have to pass  before we  consider the current state, as the rest-state of a toggle switch
+  _toggleAsPush = false;
   
   _pressFunction = NULL;
   _releaseFunction = NULL;
@@ -36,6 +43,19 @@ void ButtonOne::setPressDebounceTime(int ms_ticks) {
 void ButtonOne::setReleaseDebounceTime(int ms_ticks) { 
   _releaseDebounceTime = ms_ticks;
 } // setReleaseDebounceTime
+
+void ButtonOne::setActiveState(bool state){
+  _active_state = state;
+}
+
+void ButtonOne::currentStateIsInactiveState(void) {
+	_active_state = !digitalRead(_pin);
+}
+
+void ButtonOne::setToggleAsPush(void) {
+	_toggleAsPush = true;
+	currentStateIsInactiveState();
+}
 
 // save function for Press event
 void ButtonOne::attachPress(callbackFunction newFunction) {
@@ -69,6 +89,9 @@ void ButtonOne::buttonEvaluate(boolean buttonLevel) {
         } // if
         break;
     case 2: // read btn - waiting for release
+		if( _toggleAsPush && ( millis() - _btn_millis  > _toggleRestTime )  ) {
+          _active_state = !_active_state; // toggel to new state as the active state
+		 }
         // check to see if the button has been released
         if (buttonLevel == !_active_state) { // the button has been released
           _btnEngagedState = false; 
