@@ -1,0 +1,34 @@
+#######################################
+# Syntax Coloring Map for OneButton
+#######################################
+
+
+#######################################
+# Datatypes (KEYWORD1)
+#######################################
+
+callbackFunction	KEYWORD1
+
+#######################################
+# Methods and Functions (KEYWORD2)
+#######################################
+
+begin	KEYWORD2
+setPressDebounceTime	KEYWORD2
+setReleaseDebounceTime	KEYWORD2
+attachPress	KEYWORD2
+attachRelease	KEYWORD2
+check	KEYWORD2
+
+
+#######################################
+# Instances (KEYWORD2)
+#######################################
+
+ButtonOne	KEYWORD2
+
+#######################################
+# Constants (LITERAL1)
+#######################################
+
+
