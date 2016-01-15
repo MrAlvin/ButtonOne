@@ -1,9 +1,9 @@
 /*
- *  This is a sample sketch to show how to use the OneButton Library
+ *  This is a sample sketch to show how to use the ButtonOne Library
  *
  * Test circuit:
  * 
- *  Connect a pushbutton to pin A1 (ButtonPin), connect other side of button to ground.
+ *  Connect a push-button to pin A1 (ButtonPin), connect other side of button to ground.
  *  
  *  Pin 13 (StatusPin) is used for output 
  *    many Arduino versions already have a LED connected to this pin,

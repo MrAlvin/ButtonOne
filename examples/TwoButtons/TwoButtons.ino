@@ -1,5 +1,5 @@
 /*
- * This is a sample sketch to show how to use the OneButto nLibrary
+ * This is a sample sketch to show how to use the ButtonOne Library
  * to detect button press events on 2 buttons 
  *
  * Test circuit:
