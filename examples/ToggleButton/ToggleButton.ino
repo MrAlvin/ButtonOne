@@ -2,8 +2,8 @@
  *  This is a sample sketch to show how to use the ButtonOne Library
  *
  *  Sometimes one or two toggle buttons are used to activate the same LED
- *  Using the following settings, it is possible to to turn on or turn off
- *  the LED simply by doing one toggle of either of the two buttons.
+ *  Using the following settings, it is possible to turn on or turn off
+ *  the LED simply by doing one toggle of either of the two toggle buttons.
  *
  */
  

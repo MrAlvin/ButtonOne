@@ -3,10 +3,10 @@
  * to detect button press events on 9 buttons 
  *
  * Test circuit:
- *    Connect a pushbutton to pin A5 (ButtonPin) and ground.
+ *    Connect a pushbutton between pin A5 (ButtonPin) and ground.
  *    continue to connect push buttons on pins:    A4, A3, A2, A1, A0, 12, 11, 10
  *    
- * The Serial interface is used as a debug option for detection a button press.
+ * The Serial interface is used as a debug option for detection of a button press.
  */
 
 #include "ButtonOne.h"

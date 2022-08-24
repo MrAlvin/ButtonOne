@@ -29,6 +29,13 @@ void setup() {
   
   // link the Press function to be called on a button Press event.   
   button.attachPress(btnPress);
+
+  // adjust debounce details about the button press
+  button.setPressDebounceTime(20);    // set number of millisec that have to pass before we test to see if the button state has changed
+                                      // default is 75 milli seconds
+                                      
+  button.setReleaseDebounceTime(30)   // set number of millisec that have to pass before we test to see if the button state has changed
+                                      // default is 175 milli seconds
 } // setup
 
 
