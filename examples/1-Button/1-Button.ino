@@ -1,7 +1,7 @@
 /*
  *  This is a sample sketch to show how to use the ButtonOne Library
  *  
- *  When pushing a button connected to pin A1 
+ *    When pushing a button connected to pin A1 
  *    the built-in LED will change between on and off
  *  
  *
@@ -10,7 +10,8 @@
  *  Connect a push-button to pin A1 (ButtonPin), connect other side of button to ground.
  *  
  *  The built-in LED is used for output 
- *    many Arduino versions already have a LED that is controlled via a pin
+ *    many Arduino boards already have one LED that is controlled via a pin
+ *    The built-in LED is often referenced by LED_BUILTIN
  *
  */
  
@@ -36,7 +37,10 @@ void setup() {
   button.begin(); 
   
   // set a pointer to the function that will be called when a Button Press event occurs
-  button.attachPress(btnPress);
+  button.attachPress(btnPress);    // the btnPress() function will be called - when the button is pressed
+                                   // see below for btnPress() declaration
+
+  // Put your setup code here, to run once:
   
 } // END setup
 
@@ -50,7 +54,7 @@ void loop() {
   button.check();
 
   // You can implement other code in here or just wait a while 
-  delay(10);
+  // Put your main code here, to run repeatedly:
   
 } // END loop()
 
@@ -68,5 +72,6 @@ void btnPress() {
   digitalWrite(LED_Pin, m);
   
 } // END btnPress()
+
 
 // END sketch

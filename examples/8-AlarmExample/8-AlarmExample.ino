@@ -6,11 +6,12 @@
  *   State two: Upon press of the alarm button (or activation of Alarm Switch), 
  *               the 2 leds stop blinking, and an Alarm LED is lit.
  * 
- *   This state 2 continues 
- *      until an Alarm Release button is pressed
+ *               This state 2 is held, 
+ *                until an Alarm-Release button is pressed
+ *                and everything returns to State 1
  * 
  * Hardware:
- *   The alarm button/switch  can be attached to pin 4 and/or pin 2
+ *   The alarm button/switch can be attached to pin 4 and/or pin 2
  *   as both pins will activate the alarm
  *     
  *    pin 4 is checked once in every loop

@@ -17,12 +17,21 @@ begin	KEYWORD2
 setPressDebounceTime	KEYWORD2
 setReleaseDebounceTime	KEYWORD2
 setLongPressTime	KEYWORD2
+setRepeatPressTime	KEYWORD2
+setRepeatPressTime2	KEYWORD2
 setActiveState	KEYWORD2
+getPressDebounceTime	KEYWORD2
+getReleaseDebounceTime	KEYWORD2
+getLongPressTime	KEYWORD2
+getRepeatPressTime	KEYWORD2
+getRepeatPressTime2	KEYWORD2
+getActiveState	KEYWORD2
 currentStateIsInactiveState	KEYWORD2
 setToggleAsPush	KEYWORD2
 attachPress	KEYWORD2
 attachRelease	KEYWORD2
 attachLongPress	KEYWORD2
+attachRepeatPress	KEYWORD2
 check	KEYWORD2
 
 

@@ -6,7 +6,8 @@
  *    Connect a pushbutton to pin A1 (ButtonPin) and ground.
  *    Connect a pushbutton to pin A2 (ButtonPin) and ground.
  *    
- * The Serial interface is used for detection output of the button events.
+ * The Serial interface is used to show button press events.
+ * 
  */
 
 #include "ButtonOne.h"
@@ -24,8 +25,10 @@ ButtonOne button2(A2);
 void setup() {
   // Setup the Serial port. see http://arduino.cc/en/Serial/IfSerial
   Serial.begin(9600);
+  
   while (!Serial) {
-    ; // wait for serial port to connect. Needed for Leonardo only
+    // wait for serial port to connect. Needed for Leonardo only
+    // see http://arduino.cc/en/Serial/IfSerial
   }
   
   Serial.println("Starting TwoButtons...");
@@ -35,10 +38,15 @@ void setup() {
   button2.begin();
   
   // link the button 1 Press function.
-  button1.attachPress(btn1Press);
+  button1.attachPress(btn1Press);      // btn1Press() function will be called - when button 1 is pressed
+                                       // see below for btn1Press() declaration
 
   // link the button 2 Press function.
-  button2.attachPress(btn2Press);
+  button2.attachPress(btn2Press);      // btn2Press() function will be called - when button 2 is pressed
+                                       // see below for btn2Press() declaration
+
+  // Put your setup code here, to run once:
+  
 } // END setup()
 
 
@@ -51,7 +59,8 @@ void loop() {
   button2.check();
 
   // You can implement other code in here or just wait a while 
-  delay(10);
+  // Put your main code here, to run repeatedly:
+
 } // END loop()
 
 
