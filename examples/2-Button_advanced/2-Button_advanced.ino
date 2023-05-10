@@ -12,6 +12,19 @@
  *  The built-in LED is used for output 
  *    many Arduino versions already have a LED that is controlled via a pin
  *
+ *
+ * Other functions presented in this Sketch: 
+ *   * longPress
+ *   * setting the time (in milli seconds (ms) ) for the 
+ *     - debounce
+ *     - release debounce
+ *     - longPress 
+ *      
+ *  Serial.print is used to show a Press, a Release, and a longPress
+ *  
+ *  
+ *  by MrAlvin - May 2023
+ *  
  */
  
 #include "ButtonOne.h"
@@ -27,6 +40,8 @@ const int LED_Pin =  13;               // 13 for UNO, Nano and Mega
 // setup function - to run once:
 //*********************************************
 void setup() {
+
+  Serial.begin(115200); // serial is used to indicate button events
   
   // set the LED pin to output
   pinMode(LED_Pin, OUTPUT);      // sets the digital pin as output
@@ -47,6 +62,12 @@ void setup() {
 
   // btnRelease function is called when the button press is released.
   button.attachRelease(btnRelease);
+
+  // btnLongPress function is called when the button has been pressed for a while (default 700 milli seconds)
+  button.attachLongPress(btnLongPress);
+
+  button.setLongPressTime(400);       // set number of millisec that have to pass before a LongPress is registered
+                                      // default is 700 milli seconds
   
 } // END setup()
 
@@ -59,7 +80,7 @@ void loop() {
   button.check();
 
   // You can implement other code in here or just wait a while 
-  delay(10);
+
 } // END loop()
 
 
@@ -72,7 +93,18 @@ void btnPress() {
   m = !m;
   // write to the LED pin
   digitalWrite(LED_Pin, m);
+
+  Serial.println( F("button Pressed") );
 } // END btnPress()
+
+
+//********************************************************************
+// Button Long Press function - will be called when the Button has been pressed for some time (default 700ms) 
+//********************************************************************
+void btnLongPress() {
+  // do something when the button has been pressed for some time 
+  Serial.println( F("button Long Press is registered") );
+} // END btnLongPress()
 
 
 //********************************************************************
@@ -80,7 +112,7 @@ void btnPress() {
 //********************************************************************
 void btnRelease() {
   // do something when the button is released
-  
+  Serial.println( F("button Released") );
 } // END btnRelease()
 
 // END Sketch
