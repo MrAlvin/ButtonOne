@@ -7,6 +7,7 @@
  *    continue to connect push buttons on pins:    A4, A3, A2, A1, A0, 12, 11, 10
  *    
  * The Serial interface is used as a debug option for detection of a button press.
+ * 
  */
 
 #include "ButtonOne.h"
@@ -52,7 +53,7 @@ void setup() {
   button8.attachPress(btn8Press);
   button9.attachPress(btn9Press);
   
-} // setup
+} // END setup()
 
 
 //*********************************************
@@ -71,8 +72,8 @@ void loop() {
   button9.check();
 
   // You can implement other code in here or just wait a while 
-  delay(10);
-} // loop
+
+} // / END loop()
 
 
 
@@ -83,46 +84,46 @@ void loop() {
 // This function will be called when the button1 is pressed 
 void btn1Press() {
   Serial.println( F("Button 1 pressed.") );
-} // btn1Press
+} // END btn1Press()
 
 // This function will be called when the button2 is pressed 
 void btn2Press() {
   Serial.println( F("Button 2 pressed.") );
-} // btn2Press
+} // END btn2Press()
 
 // This function will be called when the button3 is pressed 
 void btn3Press() {
   Serial.println( F("Button 3 pressed.") );
-} // btn3Press
+} // END btn3Press()
 
 // This function will be called when the button4 is pressed 
 void btn4Press() {
   Serial.println( F("Button 4 pressed.") );
-} // btn4Press
+} // END btn4Press()
 
 // This function will be called when the button5 is pressed 
 void btn5Press() {
   Serial.println( F("Button 5 pressed.") );
-} // btn5Press
+} // END btn5Press()
 
 // This function will be called when the button6 is pressed 
 void btn6Press() {
   Serial.println( F("Button 6 pressed.") );
-} // btn6Press
+} // END btn6Press()
 
 // This function will be called when the button7 is pressed 
 void btn7Press() {
   Serial.println( F("Button 7 pressed.") );
-} // btn7Press
+} // END btn7Press()
 
 // This function will be called when the button8 is pressed 
 void btn8Press() {
   Serial.println( F("Button 8 pressed.") );
-} // btn8Press
+} // END btn8Press()
 
 // This function will be called when the button9 is pressed 
 void btn9Press() {
   Serial.println( F("Button 9 pressed.") );
-} // btn9Press
+} // END btn9Press()
 
-// End
+// END Sketch

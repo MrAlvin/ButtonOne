@@ -1,32 +1,31 @@
 /*
  *  This is a sample sketch to show how to use the ButtonOne Library
  *
+ *  Sometimes one or two toggle buttons are used to activate (or deactivate) the same LED
  *  
+ *  Using the following settings, it is possible to turn on, or turn off
+ *  the LED simply by doing one toggle of either of the two toggle switches.
+ *
+ *
+ *  The change from '5-ToggleButtons' example is;
+ *  - the LED pin is now declared as a constant, by the name 'blink_pin'
+ *
  */
  
 #include "ButtonOne.h"
 
-
-//// declare buttons
-
 // Setup a ButtonOne instance on pin A1.  
-ButtonOne button1(4);   // default active state is LOW
-
-// Setup a ButtonOne instance on pin A3.  
-ButtonOne button2(5, LOW);  //it is possible to set the active state in the declaration
-
-// Setup a ButtonOne instance on pin A3.  
-ButtonOne button3(6);  //it is possible to set the active state later. See button3.setActiveState() in setup()
-
+ButtonOne button1(5);
+ButtonOne button2(6);
 
 //// LED pin declarations
-byte blink_pin = 13;    //the pin number that the LED is connected to
+const byte blink_pin = 13;    //the pin number that the LED is connected to
 
 //// global variables for 'Blik N times' function
 byte _blinks = 0;
 byte _blink_minor = 0;
-int blinkN_on_delay = 100;    //change this value to adjust the number of MilliSeconds the LED is ON
-int blinkN_off_delay = 100;   //change this value to adjust the number of MilliSeconds the LED is OFF
+int blinkN_on_delay = 150;    //change this value to adjust the number of MilliSeconds the LED is ON
+int blinkN_off_delay = 150;   //change this value to adjust the number of MilliSeconds the LED is OFF
 int blinkN_long_off_delay = 600; // milli seconds between major and minior blinks
 
 
@@ -35,18 +34,17 @@ int blinkN_long_off_delay = 600; // milli seconds between major and minior blink
 //*********************************************
 void setup() {
   // enable the standard led on pin 13.
-  pinMode(13, OUTPUT);      // sets the digital pin as output
+  pinMode(blink_pin, OUTPUT);      // sets the digital pin as output
 
   //initiate internal button management values
   button1.begin(); 
-  button2.begin();
-  button3.begin();
-
-  // link the Press function to be called on a button Press event.   
   button1.attachPress(btn1Press);
+  button1.setToggleAsPush();
+  
+  button2.begin();
   button2.attachPress(btn2Press);
-  button3.attachPress(btn3Press);
-  button3.setActiveState(LOW);
+  button2.setToggleAsPush();
+  
 } // setup
 
 
@@ -57,36 +55,25 @@ void loop() {
   // keep watching the push button:
   button1.check();
   button2.check();
-  button3.check();
 
   // update blink LED 
-  blinkN(); 
-  
-  // You can implement other code in here 
-  
-} // loop
+  blinkN();
 
+  // You can implement other code in here or just wait a while 
+
+} // loop
 
 //*********************************************
 // button actions
 //*********************************************
 
-// this function will be called when button1 is pressed 
+// this function is called if button is toggled quick, or when switvhed (slowly) from one to the other position
 void btn1Press() {
-  static int m = LOW;   //used so we can toggle the LED 
-  // reverse the LED 
-  m = !m;
-  digitalWrite(blink_pin, m);
+  blinkN(2);
 } // btn1Press
 
-// this function will be called when button2 is pressed 
 void btn2Press() {
-  blinkN(2);  // blink twice
-} // btn1Press
-
-// this function will be called when button3 is pressed 
-void btn3Press() {
-  blinkN(1,3);  // blink once, three times
+  blinkN(4);
 } // btn1Press
 
 

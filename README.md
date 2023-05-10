@@ -4,5 +4,5 @@ Arduino OneButton Library
 This Arduino libary uses a single button for input. 
 The button gets debounced.
 
-It is largely inspired by the http://www.mathertel.de/Arduino/OneButtonLibrary.aspx
+It is largely inspired by the http://www.mathertel.de/Arduino/OneButtonLibrary.aspx <br>
 Also found here https://github.com/mathertel/OneButton

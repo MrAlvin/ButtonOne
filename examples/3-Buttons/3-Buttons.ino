@@ -27,18 +27,19 @@ void setup() {
   while (!Serial) {
     ; // wait for serial port to connect. Needed for Leonardo only
   }
+  
   Serial.println("Starting TwoButtons...");
 
   //initiate internal button management values
   button1.begin();
   button2.begin();
   
-  // link the button 1 functions.
+  // link the button 1 Press function.
   button1.attachPress(btn1Press);
 
-  // link the button 2 functions.
+  // link the button 2 Press function.
   button2.attachPress(btn2Press);
-} // setup
+} // END setup()
 
 
 //*********************************************
@@ -51,7 +52,7 @@ void loop() {
 
   // You can implement other code in here or just wait a while 
   delay(10);
-} // loop
+} // END loop()
 
 
 
@@ -62,12 +63,13 @@ void loop() {
 // This function will be called when the button1 is pressed 
 void btn1Press() {
   Serial.println("Button 1 pressed.");
-} // btn1Press
+} // END btn1Press()
+
 
 // This function will be called when the button2 is pressed 
 void btn2Press() {
   Serial.println("Button 2 pressed.");
-} // btn2Press
+} // END btn2Press()
 
 
-// End
+// END Sketch

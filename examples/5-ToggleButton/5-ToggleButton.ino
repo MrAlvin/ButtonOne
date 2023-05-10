@@ -1,15 +1,16 @@
 /*
  *  This is a sample sketch to show how to use the ButtonOne Library
  *
- *  Sometimes one or two toggle buttons are used to activate the same LED
- *  Using the following settings, it is possible to turn on or turn off
- *  the LED simply by doing one toggle of either of the two toggle buttons.
+ *  Sometimes one or two toggle switches are used to activate (or deactivate) the same LED
+ *  
+ *  Using the following settings, it is possible to turn on, or turn off
+ *  the LED simply by doing one toggle of either of the two toggle switches.
  *
  */
  
 #include "ButtonOne.h"
 
-// Setup a ButtonOne instance on pin A1.  
+// Setup a ButtonOne instance on pin D5 and D6  
 ButtonOne button1(5);
 ButtonOne button2(6);
 
@@ -21,16 +22,16 @@ void setup() {
   // enable the standard led on pin 13.
   pinMode(13, OUTPUT);      // sets the digital pin as output
 
-  //initiate internal button management values
+  //initiate internal button management
   button1.begin(); 
   button1.attachPress(btn1Press);
-  button1.setToggleAsPush();
+  button1.setToggleAsPush();       // sets the input pin (the button pin) to be used with a toggle switch
   
   button2.begin();
-  button2.attachPress(btn2Press);
-  button2.setToggleAsPush();
+  button2.attachPress(btn2Press); 
+  button2.setToggleAsPush();       // sets the input pin (the button pin) to be used with a toggle switch
   
-} // setup
+} // END setup()
 
 
 //*********************************************
@@ -43,22 +44,27 @@ void loop() {
 
   // You can implement other code in here or just wait a while 
 
-} // loop
+} // END loop()
 
 
 // this function will be called when the button is pressed 
 void btn1Press() {
   toggleLED();
-} // btn1Press
+} // END btn1Press()
 
+
+// this function will be called when the button is pressed 
 void btn2Press() {
   toggleLED();
-} // btn1Press
+} // END btn1Press()
 
+
+// this function will be called when the LED is to be changed
 void toggleLED() {
-  static int m = LOW;   //used so we can toggle the LED 
+  static int m = LOW;   //remembers LED status - so we can toggle the LED 
   // reverse the LED 
   m = !m;
   digitalWrite(13, m);
-}
-// End
+} // END toggleLED()
+
+// END Sketch
